@@ -1,0 +1,107 @@
+<html>
+    <head>
+        
+          
+    </head>
+    <body>
+        <div>
+            <input class="pkSearch" type="text" placeholder="">          
+        </div>
+        <div id="result"></div>        
+        <p>
+            Your data:
+            <select class="dropdown" data-bind="
+            options: availableTypes,
+            optionsText: 'typeName',
+            value: selectedType1,
+            optionsCaption: 'Choose...'"></select>
+        </p>
+
+        <p>
+            Your data:
+            <select class="dropdown" data-bind="
+            options: availableTypes,
+            optionsText: 'typeName',
+            value: selectedType2,
+            optionsCaption: 'Choose...'"></select>
+        </p>
+
+        <p>
+            Values:
+            <!-- <span data-bind="text: selectedType1() ? selectedType1().typeName : ''"></span>
+            <span data-bind="text: selectedType2() ? selectedType2().typeName : ''"></span> -->
+            <span data-bind="text: computedType() ? computedType().typeName: ''"></span>
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-bind="text: computedType() ? computedType().type1 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type2 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type3 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type4 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type5 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type6 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type7 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type8 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type9 : ''"></tr>
+                <tr data-bind="text: computedType() ? computedType().type10 : ''"></tr>
+            </tbody>
+            <!-- <tbody>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type1 * selectedType2().type1 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type2 * selectedType2().type2 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type3 * selectedType2().type3 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type4 * selectedType2().type4 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type5 * selectedType2().type5 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type6 * selectedType2().type6 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type7 * selectedType2().type7 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type8 * selectedType2().type8 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type9 * selectedType2().type9 : ''"></tr>
+                    <tr data-bind="text: selectedType1() && selectedType2() ? selectedType1().type10 * selectedType2().type10 : ''"></tr>
+                </tbody> -->
+            <!-- <tbody>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type1 * selectedType2().type1 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type2 * selectedType2().type2 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type3 * selectedType2().type3 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type4 * selectedType2().type4 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type5 * selectedType2().type5 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type6 * selectedType2().type6 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type7 * selectedType2().type7 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type8 * selectedType2().type8 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type9 * selectedType2().type9 : ''"></td>
+                </tr>
+                <tr>
+                    <td data-bind="text: selectedType1() && selectedType2() ? selectedType1().type10 * selectedType2().type10 : ''"></td>
+                </tr>
+            </tbody> -->
+        </table>
+
+            <!-- <select data-bind="options: array, optionsText: 'name', value: selected "></select> -->
+
+            <!-- <div data-bind="text:selected"></div> -->
+    </body>
+    <script src="jquery.min.js"></script>
+    <script type='text/javascript' src='knockout-3.4.2.js'></script>
+    <script src='pk.js'></script>
+</html>
