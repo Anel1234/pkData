@@ -9,6 +9,7 @@
       "pk.html",
       "pk.js",
       "pk.css",
+      "pk.json",
       "knockout-3.4.2.js",
       "jquery.min.js"
     ],
