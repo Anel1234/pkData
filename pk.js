@@ -47,7 +47,16 @@ var MyViewModel = function() {
     self.availableTypes = ko.observableArray([
         new type('N', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1),
         new type('F', 1, 0.5, 2, 1, 0.5, 1, 0.5, 1, 2, 1),
-        new type('P', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2)
+        new type('P', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('E', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('G', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('S', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('F', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('R', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('W', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('B', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('D', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+        new type('I', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2)
     ]),
     self.selectedType1 = ko.observable(), // Nothing selected by default
     self.selectedType2 = ko.observable(),
@@ -90,18 +99,20 @@ var MyViewModel = function() {
     })
 };
 
-ko.applyBindings(MyViewModel());
+
 
 
 window.onload = function() {
 
+    ko.applyBindings(MyViewModel());
     
     var myTableArray = [];
     // autocomplete(document.getElementById("myInput"), myTableArray)
 
-    $(".dropdown").change(function() {
-        reorderTable();
-    })
+    // APIL - needs to be specific to the type number table!
+    // $(".dropdown").change(function() {
+    //     reorderTable();
+    // })
 
     $("#result").load(url + " #pokedex", function() {
         $("#pokedex tr").each(function() {
@@ -180,15 +191,46 @@ function autocomplete(inp, arr) {
           /*check if the item starts with the same letters as the text field value:*/
           if (arr[i][1].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
             /*create a DIV element for each matching element:*/
+
+            /*separates the typing into 2 if possible*/
+            var typingSplit =  arr[i][2].match(/[A-Z][a-z]+/g)//substr(0,2);         
+            typingSplit[0] = typingSplit[0].substr(0,2);
+
             b = document.createElement("DIV");
             /*make the matching letters bold:*/
-            b.innerHTML = "<strong>" + arr[i][1].substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i][1].substr(val.length);
+            b.innerHTML = "<strong>" + arr[i][1].substr(0, val.length) +  "</strong>";
+            b.innerHTML += arr[i][1].substr(1,2);//(val.length);
+
+            if (typingSplit[1]) {
+                typingSplit[1] = typingSplit[1].substr(0,2);
+                b.innerHTML += "<span class='typing type2 " + typingSplit[1] + "' style='float:right'>" + typingSplit[1] + "</span>"
+            }
+            b.innerHTML += "<span class='typing type1 " + typingSplit[0] + "' style='float:right'>" + typingSplit[0] + "</span>"           
+
             /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input type='hidden' value='" + arr[i][1] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
                 /*insert the value for the autocomplete text field:*/
+
+                console.log($(this).find('.type1').html());
+                console.log($(this).find('.type2').html());
+
+                for (var i = 0; i < self.availableTypes().length; i++) {
+                    if ($(this).find('.type1').html().substr(0,1) == self.availableTypes()[i].typeName) {
+                        self.selectedType1(self.availableTypes()[i]);
+                        if(!$(this).find('.type2').html()) {
+                            self.selectedType2(self.availableTypes()[i]);
+                        }
+                    }
+                    if ($(this).find('.type2').html()) {
+                        if ($(this).find('.type2').html().substr(0,1) == self.availableTypes()[i].typeName) {
+                            self.selectedType2(self.availableTypes()[i]);
+                        }
+                    }
+                }
+
+                //console.log(this.getElementsByClassName("typing")[0]).innerHTML();
                 inp.value = this.getElementsByTagName("input")[0].value;
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
@@ -212,13 +254,13 @@ function autocomplete(inp, arr) {
           /*If the arrow DOWN key is pressed,
           increase the currentFocus variable:*/
           currentFocus++;
-          /*and and make the current item more visible:*/
+          /*and make the current item more visible:*/
           addActive(x);
         } else if (e.keyCode == 38) { //up
           /*If the arrow UP key is pressed,
           decrease the currentFocus variable:*/
           currentFocus--;
-          /*and and make the current item more visible:*/
+          /*and make the current item more visible:*/
           addActive(x);
         } else if (e.keyCode == 13) {
           /*If the ENTER key is pressed, prevent the form from being submitted,*/
@@ -238,6 +280,7 @@ function autocomplete(inp, arr) {
       if (currentFocus < 0) currentFocus = (x.length - 1);
       /*add class "autocomplete-active":*/
       x[currentFocus].classList.add("autocomplete-active");
+
     }
     function removeActive(x) {
       /*a function to remove the "active" class from all autocomplete items:*/
@@ -249,6 +292,16 @@ function autocomplete(inp, arr) {
       /*close all autocomplete lists in the document,
       except the one passed as an argument:*/
       var x = document.getElementsByClassName("autocomplete-items");
+      //$('.drop1').val('selectedType1');
+      //$('.drop1').val('selectedType2');
+
+    //   $('.drop1').val(100)
+    //   console.log($('.drop1'));
+    //   console.log($('.drop1').val());
+
+    // console.log(self.availableTypes()[0]);
+    // self.selectedType1(self.availableTypes()[0]);
+
       for (var i = 0; i < x.length; i++) {
         if (elmnt != x[i] && elmnt != inp) {
         x[i].parentNode.removeChild(x[i]);
