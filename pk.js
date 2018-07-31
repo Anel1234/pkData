@@ -4,7 +4,6 @@
 // };
 
 var url = "https://pokemondb.net/pokedex/all"
-var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
 
 // var viewModel = {
 //     availableCountries : ko.observableArray([
@@ -18,7 +17,7 @@ var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla"
 // ko.applyBindings(viewModel);
 
 
-var type = function(name, type1, type2, type3, type4, type5, type6, type7, type8, type9, type10) {
+var type = function(name, type1, type2, type3, type4, type5, type6, type7, type8, type9, type10, type11, type12, type13, type14, type15, type16, type17, type18, type19) {
     this.typeName = name;
     this.type1 = type1
     this.type2 = type2
@@ -30,6 +29,15 @@ var type = function(name, type1, type2, type3, type4, type5, type6, type7, type8
     this.type8 = type8
     this.type9 = type9
     this.type10 = type10
+    this.type11 = type11
+    this.type12 = type12
+    this.type13 = type13
+    this.type14 = type14
+    this.type15 = type15
+    this.type16 = type16
+    this.type17 = type17
+    this.type18 = type18
+    this.type19 = type19
 }
 
 // var viewModel = {
@@ -45,18 +53,25 @@ var type = function(name, type1, type2, type3, type4, type5, type6, type7, type8
 var MyViewModel = function() {
     var self = this;
     self.availableTypes = ko.observableArray([
-        new type('N', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1),
-        new type('F', 1, 0.5, 2, 1, 0.5, 1, 0.5, 1, 2, 1),
-        new type('P', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('E', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('G', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('S', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('F', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('R', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('W', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('B', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('D', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
-        new type('I', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2)
+        new type('Normal', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Fire', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Water', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Electric', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Grass', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Ice', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Fighting', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Poison', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Ground', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Flying', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Psychic', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Bug', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Rock', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Ghost', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Dragon', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Dark', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Steel', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Fairy', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+        new type('Curse', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     ]),
     self.selectedType1 = ko.observable(), // Nothing selected by default
     self.selectedType2 = ko.observable(),
@@ -78,7 +93,16 @@ var MyViewModel = function() {
                     self.selectedType1().type7 * self.selectedType2().type7,
                     self.selectedType1().type8 * self.selectedType2().type8,
                     self.selectedType1().type9 * self.selectedType2().type9,
-                    self.selectedType1().type10 * self.selectedType2().type10
+                    self.selectedType1().type10 * self.selectedType2().type10,
+                    self.selectedType1().type11 * self.selectedType2().type11,
+                    self.selectedType1().type12 * self.selectedType2().type12,
+                    self.selectedType1().type13 * self.selectedType2().type13,
+                    self.selectedType1().type14 * self.selectedType2().type14,
+                    self.selectedType1().type15 * self.selectedType2().type15,
+                    self.selectedType1().type16 * self.selectedType2().type16,
+                    self.selectedType1().type17 * self.selectedType2().type17,
+                    self.selectedType1().type18 * self.selectedType2().type18,
+                    self.selectedType1().type19 * self.selectedType2().type19
                 )
             }
             else return new type(
@@ -92,7 +116,16 @@ var MyViewModel = function() {
                 self.selectedType1().type7, 
                 self.selectedType1().type8, 
                 self.selectedType1().type9, 
-                self.selectedType1().type10
+                self.selectedType1().type10,
+                self.selectedType1().type11,
+                self.selectedType1().type12,
+                self.selectedType1().type13,
+                self.selectedType1().type14,
+                self.selectedType1().type15,
+                self.selectedType1().type16,
+                self.selectedType1().type17,
+                self.selectedType1().type18,
+                self.selectedType1().type19
             )
         }
         else return null
@@ -104,6 +137,7 @@ var MyViewModel = function() {
 
 window.onload = function() {
 
+    chrome.runtime.connect({name: "background"});
     ko.applyBindings(MyViewModel());
     
     var myTableArray = [];
@@ -119,7 +153,17 @@ window.onload = function() {
             var arrayOfThisRow = [];
             var tableData = $(this).find('td');
             if (tableData.length > 0) {
-                tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+                tableData.each(function() {
+
+                    //console.log(this.className)
+                    if (this.className == 'cell-num cell-fixed') {
+                        arrayOfThisRow.push($(this).find('.icon-pkmn').attr('data-src'));
+                        //console.log($(this).find('.icon-pkmn').attr('data-src'));
+                    }                
+                    //console.log(this.className);
+                    //console.log($(this).find('.infocard-cell-img'));
+                    arrayOfThisRow.push($(this).text());
+                });
                 myTableArray.push(arrayOfThisRow);
             }
         });
@@ -163,11 +207,6 @@ function reorderTable() {
 }
 
 
-
-
-
-
-
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -189,49 +228,49 @@ function autocomplete(inp, arr) {
         var matchCount = 0;
         for (i = 0; i < arr.length; i++) {
           /*check if the item starts with the same letters as the text field value:*/
-          if (arr[i][1].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          if (arr[i][2].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
             /*create a DIV element for each matching element:*/
 
             /*separates the typing into 2 if possible*/
-            var typingSplit =  arr[i][2].match(/[A-Z][a-z]+/g)//substr(0,2);         
-            typingSplit[0] = typingSplit[0].substr(0,2);
+            var typingSplit =  arr[i][3].match(/[A-Z][a-z]+/g)//substr(0,2);         
+            //typingSplit[0] = typingSplit[0].substr(0,2);
 
             b = document.createElement("DIV");
             /*make the matching letters bold:*/
-            b.innerHTML = "<strong>" + arr[i][1].substr(0, val.length) +  "</strong>";
-            b.innerHTML += arr[i][1].substr(1,2);//(val.length);
+            b.innerHTML = "<img src=" + arr[i][0] + "></img>";
+            b.innerHTML += "<strong>" + arr[i][2].substr(0, val.length) +  "</strong>";
+            b.innerHTML += arr[i][2].substr(1,2);//(val.length);
 
             if (typingSplit[1]) {
-                typingSplit[1] = typingSplit[1].substr(0,2);
-                b.innerHTML += "<span class='typing type2 " + typingSplit[1] + "' style='float:right'>" + typingSplit[1] + "</span>"
+                //typingSplit[1] = typingSplit[1].substr(0,2);
+                b.innerHTML += "<span class='typing type2 type-icon type-" + typingSplit[1] + "'>" + typingSplit[1] + "</span>" //"' style='float:right; display: block'
             }
-            b.innerHTML += "<span class='typing type1 " + typingSplit[0] + "' style='float:right'>" + typingSplit[0] + "</span>"           
+            b.innerHTML += "<span class='typing type1 type-icon type-" + typingSplit[0] + "'>" + typingSplit[0] + "</span>"     //"' style='float:right; display: block'>"
 
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' value='" + arr[i][1] + "'>";
+            b.innerHTML += "<input type='hidden' value='" + arr[i][2] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
                 /*insert the value for the autocomplete text field:*/
 
                 console.log($(this).find('.type1').html());
-                console.log($(this).find('.type2').html());
 
                 for (var i = 0; i < self.availableTypes().length; i++) {
-                    if ($(this).find('.type1').html().substr(0,1) == self.availableTypes()[i].typeName) {
+                    if ($(this).find('.type1').html() == self.availableTypes()[i].typeName) {
                         self.selectedType1(self.availableTypes()[i]);
                         if(!$(this).find('.type2').html()) {
                             self.selectedType2(self.availableTypes()[i]);
                         }
                     }
                     if ($(this).find('.type2').html()) {
-                        if ($(this).find('.type2').html().substr(0,1) == self.availableTypes()[i].typeName) {
+                        if ($(this).find('.type2').html() == self.availableTypes()[i].typeName) {
                             self.selectedType2(self.availableTypes()[i]);
                         }
                     }
                 }
 
                 //console.log(this.getElementsByClassName("typing")[0]).innerHTML();
-                inp.value = this.getElementsByTagName("input")[0].value;
+                inp.value = this.getElementsByTagName("input")[0].value.substr(0,2);
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
@@ -312,4 +351,20 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
-  }
+}
+
+/*
+//old array
+new type('N', 2, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1),
+new type('F', 1, 0.5, 2, 1, 0.5, 1, 0.5, 1, 2, 1),
+new type('P', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('E', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('G', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('S', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('F', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('R', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('W', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('B', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('D', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2),
+new type('I', 0.5, 2, 2, 0.5, 1, 1, 0.5, 1, 0.5, 2)
+*/

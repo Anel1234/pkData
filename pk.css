@@ -56,5 +56,53 @@ input[type=submit] {
 }
 
 .typing {
-    border: 1px solid black;
+    float: right;
+    display: block;
+    width: 66px;
+    background: #dbdbdb;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    text-transform: uppercase;
+    transition: opacity .4s;
+    margin-right: 3px;
+    margin-left: 3px
+    /* clear: right; */
 }
+
+
+/* Should highlight the icon when hovering over but doesn't work (can't get focus?) */
+
+.type-icon:hover, .type-icon:active, .type-icon:focus {
+    color:#fff;
+    text-decoration:none
+}
+
+.type-icon:link:hover, .type-icon:link:active, .type-icon:link:focus {
+    opacity:0.85
+}
+
+.type-Normal{background-color:#aa9}
+.type-Fire{background-color:#f42}
+.type-Water{background-color:#39f}
+.type-Electric{background-color:#fc3}
+.type-Grass{background-color:#7c5}
+.type-Ice{background-color:#6cf}
+.type-Fighting{background-color:#b54}
+.type-Poison{background-color:#a59}
+.type-Ground{background-color:#db5}
+.type-Flying{background-color:#89f}
+.type-Psychic{background-color:#f59}
+.type-Bug{background-color:#ab2}
+.type-Rock{background-color:#ba6}
+.type-Ghost{background-color:#66b}
+.type-Dragon{background-color:#76e}
+.type-Dark{background-color:#754}
+.type-Steel{background-color:#aab}
+.type-Fairy{background-color:#e9e}
+.type-Curse{background-color:#698}
