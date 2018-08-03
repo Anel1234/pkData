@@ -159,10 +159,15 @@ window.onload = function() {
                     if (this.className == 'cell-num cell-fixed') {
                         arrayOfThisRow.push($(this).find('.icon-pkmn').attr('data-src'));
                         //console.log($(this).find('.icon-pkmn').attr('data-src'));
-                    }                
+                    }
+                    
+                    if (this.className == "cell-name") {
+                        arrayOfThisRow.push($(this).find('.ent-name').text());
+                        arrayOfThisRow.push($(this).find('.text-muted').text());
+                    }
                     //console.log(this.className);
                     //console.log($(this).find('.infocard-cell-img'));
-                    arrayOfThisRow.push($(this).text());
+                    else arrayOfThisRow.push($(this).text());
                 });
                 myTableArray.push(arrayOfThisRow);
             }
@@ -232,14 +237,17 @@ function autocomplete(inp, arr) {
             /*create a DIV element for each matching element:*/
 
             /*separates the typing into 2 if possible*/
-            var typingSplit =  arr[i][3].match(/[A-Z][a-z]+/g)//substr(0,2);         
+            var typingSplit =  arr[i][4].match(/[A-Z][a-z]+/g)//substr(0,2);         
             //typingSplit[0] = typingSplit[0].substr(0,2);
 
             b = document.createElement("DIV");
+            b.className = "searchDiv";
             /*make the matching letters bold:*/
             b.innerHTML = "<img src=" + arr[i][0] + "></img>";
             b.innerHTML += "<strong>" + arr[i][2].substr(0, val.length) +  "</strong>";
-            b.innerHTML += arr[i][2].substr(1,2);//(val.length);
+            b.innerHTML += arr[i][2].substr(val.length);
+            b.innerHTML += "<small class='smalltxt'>" + arr[i][3] + "</small>";
+            b.setAttribute("imagePath", "https://img.pokemondb.net/artwork/" + arr[i][0].split('.').slice(0, -1).join('.').split('\\').pop().split('/').pop() + ".jpg");
 
             if (typingSplit[1]) {
                 //typingSplit[1] = typingSplit[1].substr(0,2);
@@ -269,8 +277,25 @@ function autocomplete(inp, arr) {
                     }
                 }
 
+                inp.value = this.getElementsByTagName("input")[0].value;
+
+                $(".pkImage").attr("src",$(this).attr("imagePath"));
+                $(".pkStatsTable").load("https://pokemondb.net/pokedex/" + inp.value + " .grid-row>.grid-col>.resp-scroll>.vitals-table:first", function() { //.grid-row>.grid-col>.resp-scroll>.vitals-table>
+
+
+                    //$(".pkStatsTable").html($(".grid-row>#dex-stats").html());
+                    // var tableData = $(this).find('td');
+                    // if (tableData.length > 0) {
+                    //     tableData.each(function() {
+
+                    //     })
+                    // }
+                })
+                //console.log(arr[i][0].split('\\').pop().split('/').pop());
+                //$(".pkImage").attr("src","https://img.pokemondb.net/artwork/" + arr[i][0].split('\\').pop().split('/').pop());
+
                 //console.log(this.getElementsByClassName("typing")[0]).innerHTML();
-                inp.value = this.getElementsByTagName("input")[0].value.substr(0,2);
+                //inp.value = this.getElementsByTagName("input")[0].value;//.substr(0,2);
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
